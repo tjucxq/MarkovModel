@@ -5,7 +5,7 @@ import numpy as np
 import copy
 
 #A:状态转移矩阵， B:状态预测矩阵， Pai：初始状态分布，T：观测序列的个数， O：观测序列， N：状态个数
-def Farword_Algorithm(A, B, Pai, T, O, N):
+def Forward_Algorithm(A, B, Pai, T, O, N):
     startList = []
     nextList = []
     #计算时刻1的观测概率
@@ -29,10 +29,12 @@ def Farword_Algorithm(A, B, Pai, T, O, N):
 
 
 if __name__ == "__main__":
+    #Forward Algorithm
+    #对应统计学习方法，P177的例子
     A = [[0.5, 0.2, 0.3], [0.3, 0.5, 0.2], [0.2, 0.3, 0.5]]
     B = [[0.5, 0.5], [0.4, 0.6], [0.7, 0.3]]
     Pai = [0.2, 0.4, 0.4]
     O = [0, 1, 0]
     T = 3
-    result = Farword_Algorithm(A, B, Pai, T, O, 3)
+    result = Forward_Algorithm(A, B, Pai, T, O, 3)
     print sum(result)
