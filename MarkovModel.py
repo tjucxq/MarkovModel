@@ -18,10 +18,10 @@ def Farword_Algorithm(A, B, Pai, T, O, N):
         for m in range(N):
             temp = 0.0
             for n in range(N):
-                #第i轮，需要第i-1轮的每个状态转移到当前状态qi,并计算预测的概率
+                #第i轮，需要第i-1轮的每个状态n转移到当前状态m,并计算m的预测的概率
                 temp += A[n][m]*startList[n]*B[m][O[i]]
             nextList.append(temp)
-        startList = copy.deepcopy(nextList)
+        startList = copy.copy(nextList)
         nextList = []
         print startList
     return startList
